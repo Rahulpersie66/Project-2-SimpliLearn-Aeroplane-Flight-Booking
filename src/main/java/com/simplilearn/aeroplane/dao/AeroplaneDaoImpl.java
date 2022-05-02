@@ -13,6 +13,7 @@ import org.hibernate.Transaction;
 
 
 import com.simplilearn.aeroplane.dto.RegisterUser;
+import com.simplilearn.aeroplane.dto.SeatBooked;
 import com.simplilearn.aeroplane.dto.TravelData;
 import com.simplilearn.aeroplane.util.HibernateUtil;
 
@@ -46,6 +47,16 @@ public class AeroplaneDaoImpl {
 		Session session=factory.openSession();
 		Transaction txn=session.beginTransaction();
 		Integer id =(Integer)session.save(travelData);
+		txn.commit();
+		session.close();
+		return id;
+	
+	}
+	public Integer addSeatBookedData(SeatBooked seatBooked)
+	{
+		Session session=factory.openSession();
+		Transaction txn=session.beginTransaction();
+		Integer id =(Integer)session.save(seatBooked);
 		txn.commit();
 		session.close();
 		return id;
@@ -133,11 +144,64 @@ public class AeroplaneDaoImpl {
 		
 	}
 	
+	public void updateSeats(int Aid,int seatsLeft)
+	{	Set<TravelData> results;
+		Session session=factory.openSession();
+		Transaction txn=session.beginTransaction();
+		String hql="From TravelData Where Id='"+Aid+"'";
+		TypedQuery<TravelData> query=session.createQuery(hql);
+		results=new LinkedHashSet<TravelData>(query.getResultList());
+		TravelData details=session.get(TravelData.class, Aid);
+		details.setNoOfPerson(seatsLeft);
+		session.update(details);
+		txn.commit();
+		session.close();
+		System.out.println(details);
+		
+	}
+
+	public Set<RegisterUser> getAllUser()
+	{
+		Set<RegisterUser> allData;
+		Session session=factory.openSession();
+		String hql="from RegisterUser";
+		TypedQuery<RegisterUser> query=session.createQuery(hql);
+		allData=new LinkedHashSet<RegisterUser>(query.getResultList());
+		
+		session.close();
+		return allData;
+	}
+	
+	public Set<TravelData> getAllFlight()
+	{
+		Set<TravelData> allData;
+		Session session=factory.openSession();
+		String hql="from TravelData";
+		TypedQuery<TravelData> query=session.createQuery(hql);
+		allData=new LinkedHashSet<TravelData>(query.getResultList());
+		
+		session.close();
+		return allData;
+	}
+	
 	public Set<TravelData> getAllTravelDetails(String date, String source,String destination)
 	{
 		Set<TravelData> allData;
 		Session session=factory.openSession();
 		String hql="from TravelData where Date_Of_Travel='"+date+"' AND Source='"+source+"' AND Destination='"+destination+"'";
+		TypedQuery<TravelData> query=session.createQuery(hql);
+		allData=new HashSet<TravelData>(query.getResultList());
+		System.out.println(allData);
+		System.out.println(allData);
+		session.close();
+		return allData;
+	}
+	
+	public Set<TravelData> getAllTravelConfirmDetails(int Aid)
+	{
+		Set<TravelData> allData;
+		Session session=factory.openSession();
+		String hql="from TravelData where Id='"+Aid+"'";
 		TypedQuery<TravelData> query=session.createQuery(hql);
 		allData=new HashSet<TravelData>(query.getResultList());
 		System.out.println(allData);

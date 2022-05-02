@@ -19,6 +19,7 @@ public class PersonalDetailsServlet extends HttpServlet {
 	
 		PrintWriter writer=response.getWriter();
 		writer.println("YOUR deatils are saved!!");
+		
 	}
 
 	

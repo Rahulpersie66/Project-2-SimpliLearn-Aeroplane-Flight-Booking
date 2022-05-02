@@ -9,6 +9,7 @@ import org.hibernate.cfg.Environment;
 import org.hibernate.service.ServiceRegistry;
 
 import com.simplilearn.aeroplane.dto.RegisterUser;
+import com.simplilearn.aeroplane.dto.SeatBooked;
 import com.simplilearn.aeroplane.dto.TravelData;
 
 
@@ -38,6 +39,7 @@ private static SessionFactory factory;
 		//class that holds mapping --configuration.addAnnotatedClass(Student.class);
 		configuration.addAnnotatedClass(RegisterUser.class);
 		configuration.addAnnotatedClass(TravelData.class);
+		configuration.addAnnotatedClass(SeatBooked.class);
 		
 		ServiceRegistry registry=new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
 		factory=configuration.buildSessionFactory(registry);

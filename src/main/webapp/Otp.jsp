@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>Hello an OTP for payment is send on the number 7**6**709.Please enter the OTP for booking the Flight at AEROSPACE.</h2>
-<form action="paymentSuccessful.jsp" method="post">
+<form action="paymentSuccesfulServlet" method="post">
 Enter OTP: <input type="number" name="otp"/></br>
 </br>
 <input type="submit" value="Ok"/>

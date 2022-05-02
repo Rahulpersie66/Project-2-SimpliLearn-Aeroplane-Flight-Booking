@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username=request.getParameter("uname");
 		String password=request.getParameter("pwd");
+		
 		String n_user,n_pass;
 		PrintWriter writer=response.getWriter();
 		AeroplaneDaoImpl dao=new AeroplaneDaoImpl();

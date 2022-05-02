@@ -9,13 +9,15 @@
 <h1>Welcome Admin:</h1>
 <h3>Your functions are:</h3>
 <body>
+<table border="1" cellpadding="1">
 <form action="AddFlight.jsp" method="post">
-Add details of the Flight <input type="submit" value="Add flight"/></br>
-Change password of any user<input type="submit" formaction="ChangePassword.jsp" value="Lets change"/></br>
-Master List of Airlines</br>
-Master List of Source & Destinations</br>
-Logout from admin <input type="submit" formaction="login.jsp" value="Logout"/></br>
-
+<tr><td>Add details of the Flight</td><td> <input type="submit" value="Add flight"/></td></tr>
+<tr><td>Change password of any user </td><td><input type="submit" formaction="ChangePassword.jsp" value="Lets change"/></td></tr>
+<tr><td>Master List of Airlines</td><td><input type="submit" formaction="Airlineslist.jsp" value="Airline list"/></td></tr>
+<tr><td>Master List of Source & Destinations</td><td><input type="submit" formaction="Source&Dest.jsp" value="Source & Dest"/></td></tr>
+</table></br>
+Logout from admin <input type="submit" formaction="login.jsp" value="Logout"/>
 </form>
+
 </body>
 </html>

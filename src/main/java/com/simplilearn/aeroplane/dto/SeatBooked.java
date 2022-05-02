@@ -18,6 +18,9 @@ public class SeatBooked {
 	@Column(name="Name")
 	private String name;
 	
+	@Column(name="username")
+	private String username;
+	
 	@Column(name="Age")
 	private int age;
 	
@@ -28,7 +31,7 @@ public class SeatBooked {
 	private String address;
 
 	@Column(name="Mobile")
-	private int phone;
+	private long phone;
 	
 	@Column(name="Airline")
 	private String airline;
@@ -48,20 +51,11 @@ public class SeatBooked {
 	@Column(name="TotalCost")
 	private double tcost;
 
-	public SeatBooked(String name, int age, String emailAddress, String address, int phone, String airline, int airId,
-			String dateOfTravel, String source, String destintion, double tcost) {
-		this.name = name;
-		this.age = age;
-		this.emailAddress = emailAddress;
-		this.address = address;
-		this.phone = phone;
-		this.airline = airline;
-		this.airId = airId;
-		this.dateOfTravel = dateOfTravel;
-		this.source = source;
-		this.destintion = destintion;
-		this.tcost = tcost;
-	}
+	@Column(name="AdhaarCard")
+	private long adhaar;
+
+
+	
 
 	public int getBookId() {
 		return bookId;
@@ -103,13 +97,7 @@ public class SeatBooked {
 		this.address = address;
 	}
 
-	public int getPhone() {
-		return phone;
-	}
-
-	public void setPhone(int phone) {
-		this.phone = phone;
-	}
+	
 
 	public String getAirline() {
 		return airline;
@@ -158,9 +146,36 @@ public class SeatBooked {
 	public void setTcost(double tcost) {
 		this.tcost = tcost;
 	}
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public SeatBooked() {
 	}
+
+	public SeatBooked(String name, String username, int age, String emailAddress, String address, long phone,
+			String airline, int airId, String dateOfTravel, String source, String destintion, double tcost,long adhaar) {
+		this.name = name;
+		this.username = username;
+		this.age = age;
+		this.emailAddress = emailAddress;
+		this.address = address;
+		this.phone = phone;
+		this.airline = airline;
+		this.airId = airId;
+		this.dateOfTravel = dateOfTravel;
+		this.source = source;
+		this.destintion = destintion;
+		this.tcost = tcost;
+		this.adhaar=adhaar;
+	}
+	
 	
 	
 }
